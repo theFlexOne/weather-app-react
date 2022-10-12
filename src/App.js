@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
+import useInputWeather from "./hooks/useInputWeather";
+import useUserWeather from "./hooks/useUserWeather";
 
 function App() {
+  const [weatherData, setWeatherData] = useState(null);
+  const [locationName, setLocationName] = useState("");
+
+  const getInputWeather = useInputWeather();
+  const getUserWeather = useUserWeather();
+
+  const handleSearchFormSubmit = async (input) => {
+    const { name, weatherData } = await getInputWeather(input);
+    setLocationName(name);
+    setWeatherData(weatherData);
+  };
+
+  useEffect(() => {
+    getUserWeather &&
+      getUserWeather().then((data) => {
+        if (!data) return;
+        setWeatherData(data.weatherData);
+        setLocationName(data.name);
+      });
+  }, [getUserWeather]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header onSearchFormSubmit={handleSearchFormSubmit} />
+      {weatherData && (
+        <Main weatherData={weatherData} locationName={locationName} />
+      )}
     </div>
   );
 }
