@@ -1,24 +1,107 @@
 main {
-  margin: auto 0;
-
   color: rgba(255, 255, 255, 0.7);
   display: grid;
   height: 100%;
-  width: min(100%, 910px);
+  padding: 2.5rem;
+  display: grid;
+  gap: 1rem 3rem;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto auto;
-  gap: 5% 2.5%;
-  margin: auto auto;
+  grid-template-rows: 1fr 1fr;
+  flex-grow: 1;
+  /* grid-template-rows: 50% 50%; */
 }
 
-main > * {
+.weather-card {
   background-color: var(--frosted-background-color);
   backdrop-filter: var(--frosted-filter-blur);
   border: var(--frosted-border);
   border-radius: 5px;
-  grid-column-end: span 4;
   box-shadow: var(--frosted-box-shadow);
-  max-height: 100%;
+}
+
+.primary-card {
+  grid-column: 1 / 9;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+  /* flex-wrap: wrap; */
+  /* align-items: center; */
+}
+
+.primary-card .top {
+  display: flex;
+}
+
+.primary-card .location-name {
+  margin-inline-end: auto;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.primary-card .date-time {
+  text-align: end;
+}
+
+.primary-card .time {
+  font-size: 1.5rem;
+}
+
+.primary-card .weather {
+  display: flex;
+  margin-left: 15%;
+  gap: 1rem;
+}
+
+.primary-card .weather-info {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.primary-card .temp {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.primary-card .weather-description {
+  text-transform: capitalize;
+  font-size: 1.25rem;
+}
+img.weather-icon {
+  width: 180px;
+  /* aspect-ratio: 1/1; */
+  object-fit: none;
+}
+
+.weather-details {
+  grid-row: 2/3;
+  grid-column: 1 / 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  place-items: center;
+}
+
+.temp::after {
+  content: "°F";
+  margin-inline-start: 0.25rem;
+}
+
+.wind-direction {
+  margin-inline-end: 0.25rem;
+  font-size: 1.25rem;
+}
+
+.wind-speed::after {
+  content: "mph";
+  margin-inline-start: 0.25rem;
+}
+
+.visibility-distance::after {
+  content: "km";
+  margin-inline-start: 0.25rem;
 }
 
 .forecast-overview {
@@ -217,34 +300,3 @@ main > * {
 .image-temp-row > span {
   font-size: 3rem;
 } */
-
-.weather-description {
-  text-transform: capitalize;
-}
-
-.weather-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  place-items: center;
-}
-
-.temp::after {
-  content: "°F";
-  margin-inline-start: 0.25rem;
-}
-
-.wind-direction {
-  margin-inline-end: 0.25rem;
-  font-size: 1.25rem;
-}
-
-.wind-speed::after {
-  content: "mph";
-  margin-inline-start: 0.25rem;
-}
-
-.visibility-distance::after {
-  content: "km";
-  margin-inline-start: 0.25rem;
-}

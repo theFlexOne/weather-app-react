@@ -1,10 +1,16 @@
-import { WEATHER_STACK_FORECAST_API_ENDPOINT } from "../constants/apiConstants";
+import {
+  OPEN_WEATHER_MAP_CURRENT_API_ENDPOINT,
+  OPEN_WEATHER_MAP_THREE_HOUR_API_ENDPOINT,
+} from "../constants/apiConstants";
 
-export const buildWeatherStackUrl = ({ lat, lng, name, units = "f" }) => {
-  const accessKey = `access_key=${process.env.REACT_APP_WEATHER_STACK_API_KEY}`;
-  const query = `query=${lat && lng ? `${lat},${lng}` : name}`;
-  const forecastDays = `forecast_days=5`;
-  const url = `${WEATHER_STACK_FORECAST_API_ENDPOINT}?${accessKey}&${query}&${forecastDays}`;
-  console.log("url", url);
+export const buildOpenWeatherCurrentUrl = ({ lat, lng, units }) => {
+  const query = `?lat=${lat}&lon=${lng}&units=${units}&lang=en&appid=${process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY}`;
+  const url = `${OPEN_WEATHER_MAP_CURRENT_API_ENDPOINT}${query}`;
+  return url;
+};
+
+export const buildOpenWeatherTHreeHourUrl = ({ lat, lng, units }) => {
+  const query = `?lat=${lat}&lon=${lng}&units=${units}&lang=en&appid=${process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY}`;
+  const url = `${OPEN_WEATHER_MAP_THREE_HOUR_API_ENDPOINT}${query}`;
   return url;
 };

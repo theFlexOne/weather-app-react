@@ -1,28 +1,28 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect } from "react";
 import { extractWeatherData } from "../helpers/weatherHelpers";
 import useCurrentWeather from "./useCurrentWeather";
-import useFiveDayForecast from "./useFiveDayForecast";
 import useGeolocation from "./useGeolocation";
 import useLocationName from "./useLocationName";
+import useThreeHourForecast from "./useThreeHourForecast";
 
 const useUserWeather = () => {
   const geolocation = useGeolocation();
   const getLocationName = useLocationName();
   const getWeatherData = useCurrentWeather();
-  const getFiveDayForecast = useFiveDayForecast();
-
-  useEffect(() => {}, [geolocation]);
+  const getThreeHourForecast = useThreeHourForecast();
 
   const cb = useCallback(async () => {
     if (!geolocation.coords) return;
     const name = await getLocationName(geolocation.coords);
-    const weatherData = extractWeatherData(
-      await getWeatherData(geolocation.coords)
-    );
-    const forecast = await getFiveDayForecast(geolocation.coords);
-    console.log("forecast", forecast);
-    return { name, weatherData };
-  }, [getWeatherData, getLocationName, geolocation.coords, getFiveDayForecast]);
+    const weatherData = await getWeatherData(geolocation.coords);
+    const threeHourForecast = await getThreeHourForecast(geolocation.coords);
+    return { name, weatherData, threeHourForecast };
+  }, [
+    getWeatherData,
+    getLocationName,
+    geolocation.coords,
+    getThreeHourForecast,
+  ]);
 
   return cb;
 };

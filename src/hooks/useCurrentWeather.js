@@ -1,16 +1,19 @@
 import { useCallback } from "react";
 import { OPEN_WEATHER_MAP_CURRENT_API_ENDPOINT } from "../constants/apiConstants";
+import { buildOpenWeatherCurrentUrl } from "../helpers/apiHelpers";
+import { extractWeatherData } from "../helpers/weatherHelpers";
 
 const useCurrentWeather = (options = {}) => {
   const units = options.units || "imperial";
   const cb = useCallback(
-    async ({ lat, lng }) => {
-      const query = `?lat=${lat}&lon=${lng}&units=${units}&lang=en&appid=${process.env.REACT_APP_OPEN_WEATHER_MAP_API_KEY}`;
-      const url = `${OPEN_WEATHER_MAP_CURRENT_API_ENDPOINT}${query}`;
+    async (coords) => {
+      const url = buildOpenWeatherCurrentUrl({ ...coords, units });
       try {
         const response = await fetch(url);
         const data = await response.json();
-        return data;
+        // console.log("data", data); // uncomment to log the raw fetched data
+        const weatherData = extractWeatherData(data);
+        return weatherData;
       } catch (err) {
         console.error(err);
       }

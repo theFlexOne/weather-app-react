@@ -8,12 +8,16 @@ import useUserWeather from "./hooks/useUserWeather";
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [locationName, setLocationName] = useState("");
+  const [threeHourForecast, setThreeHourForecast] = useState(null);
 
   const getInputWeather = useInputWeather();
   const getUserWeather = useUserWeather();
 
   const handleSearchFormSubmit = async (input) => {
-    const { name, weatherData } = await getInputWeather(input);
+    const { name, weatherData, threeHourForecast } = await getInputWeather(
+      input
+    );
+    setThreeHourForecast(threeHourForecast.list);
     setLocationName(name);
     setWeatherData(weatherData);
   };
@@ -22,6 +26,7 @@ function App() {
     getUserWeather &&
       getUserWeather().then((data) => {
         if (!data) return;
+        setThreeHourForecast(data.threeHourForecast.list);
         setWeatherData(data.weatherData);
         setLocationName(data.name);
       });
@@ -31,7 +36,11 @@ function App() {
     <div className="App">
       <Header onSearchFormSubmit={handleSearchFormSubmit} />
       {weatherData && (
-        <Main weatherData={weatherData} locationName={locationName} />
+        <Main
+          weatherData={weatherData}
+          locationName={locationName}
+          threeHourForecast={threeHourForecast}
+        />
       )}
     </div>
   );
