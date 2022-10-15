@@ -1,11 +1,11 @@
 import { useCallback } from "react";
-import { buildOpenWeatherTHreeHourUrl } from "../helpers/apiHelpers";
+import { buildOpenWeatherThreeHourUrl } from "../helpers/apiHelpers";
 
 const useThreeHourForecast = (options = {}) => {
   const units = options.units || "imperial";
   const cb = useCallback(
     async (coords) => {
-      const url = buildOpenWeatherTHreeHourUrl({ ...coords, units });
+      const url = buildOpenWeatherThreeHourUrl({ ...coords, units });
       try {
         const response = await fetch(url);
         const data = await response.json();

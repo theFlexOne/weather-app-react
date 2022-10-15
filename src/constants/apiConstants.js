@@ -8,6 +8,3 @@ export const OPEN_WEATHER_MAP_CURRENT_API_ENDPOINT =
 
 export const OPEN_WEATHER_MAP_THREE_HOUR_API_ENDPOINT =
   "https://api.openweathermap.org/data/2.5/forecast";
-
-// export const WEATHER_STACK_FORECAST_API_ENDPOINT =
-//   "http://api.weatherstack.com/forecast";

@@ -12,12 +12,27 @@
 }
 
 body {
-  background-image: url(assets/images/night-sky-cloudy-moon.jpg);
+  /* background-image: url(assets/images/night-sky-cloudy-moon.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; */
+  font-family: var(--font-family-first);
+  /* display: flex;
+  flex-direction: column; */
+  /* height: 100vh; */
+}
+
+.App {
+  height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  font-family: var(--font-family-first);
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+}
+
+.App.day {
+  background-image: url(assets/images/background_day1.jpg);
+}
+
+.App.night {
+  background-image: url(assets/images/background_night1.jpg);
 }

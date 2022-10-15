@@ -19,4 +19,16 @@ export const buildLocalDateTime = (offset) => {
   return { date, time };
 };
 
-export const getLocalTime = (ms, offset) => {};
+export const getLocalTime = (ms, offset) => {
+  const dateTimeUTC = DateTime.fromMillis(ms);
+  const dateTimeLocal = dateTimeUTC.toUTC(offset);
+  return {
+    day: dateTimeLocal.toFormat("EEE"),
+    hour: dateTimeLocal.toFormat("ha"),
+  };
+};
+
+export const buildWeatherIconUrl = (iconCode, size = "lg") => {
+  const sizes = { md: "2", lg: "4" };
+  return `https://openweathermap.org/img/wn/${iconCode}@${sizes[size]}x.png`;
+};

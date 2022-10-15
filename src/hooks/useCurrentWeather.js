@@ -11,7 +11,7 @@ const useCurrentWeather = (options = {}) => {
       try {
         const response = await fetch(url);
         const data = await response.json();
-        // console.log("data", data); // uncomment to log the raw fetched data
+        console.log("data", data); // uncomment to log the raw fetched data
         const weatherData = extractWeatherData(data);
         return weatherData;
       } catch (err) {
