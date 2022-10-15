@@ -1,16 +1,26 @@
 header {
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  right: 0; */
   display: flex;
   align-items: center;
   gap: 1em;
   padding-right: 1em;
   padding-left: 1em;
+  min-height: 3.5rem;
+  margin-bottom: auto;
   background-color: var(--frosted-background-color);
   backdrop-filter: var(--frosted-filter-blur);
-  flex-basis: 0.2;
+  height: 4rem;
+}
+
+header .logo {
+  height: 100%;
 }
 
 header img {
-  height: 4rem;
+  height: 100%;
 }
 
 header form {
@@ -24,12 +34,17 @@ header form {
   align-items: center;
 }
 
+/* header label {
+  height: 3rem;
+  width: 100%;
+} */
 header input[type="search"] {
   padding: 0.25rem 1.5rem;
   font-size: 1rem;
   font-family: inherit;
   background-color: rgba(255, 255, 255, 0.7);
   border-color: var(--frosted-border-color);
+  /* color: black; */
   font-weight: 500;
   border-radius: 50px;
   width: 100%;

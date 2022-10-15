@@ -1,0 +1,5 @@
+.weather-details {
+  grid-row: 7/11;
+  grid-column: 1/9;
+  grid-template-columns: subgrid;
+}

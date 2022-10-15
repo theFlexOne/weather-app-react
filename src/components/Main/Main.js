@@ -8,10 +8,7 @@ const Main = ({ weatherData, locationName, threeHourForecast }) => {
     <main>
       <Overview weatherData={weatherData} locationName={locationName} />
       <WeatherDetails weatherData={weatherData} />
-      <ThreeHourForecast
-        weatherData={weatherData}
-        threeHourForecast={threeHourForecast}
-      />
+      <ThreeHourForecast weatherData={weatherData} threeHourForecast={null} />
     </main>
   );
 };
