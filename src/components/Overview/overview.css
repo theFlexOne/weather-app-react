@@ -1,4 +1,4 @@
 .weather-overview {
+  grid-row: 1/9;
   grid-column: 1/9;
-  grid-row: 1/7;
 }

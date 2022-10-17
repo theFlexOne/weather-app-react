@@ -5,17 +5,10 @@ import Main from "./components/Main/Main";
 import useInputWeather from "./hooks/useInputWeather";
 import useUserWeather from "./hooks/useUserWeather";
 
-const BACKGROUND_NIGHT = "assets/images/background_night1.jpg";
-const BACKGROUND_DAY = "assets/images/background_day1.jpg";
-
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [locationName, setLocationName] = useState("");
   const [threeHourForecast, setThreeHourForecast] = useState(null);
-
-  const [isNight, setIsNight] = useState(false);
-
-  // let isNight = false;
 
   const getInputWeather = useInputWeather();
   const getUserWeather = useUserWeather();
@@ -24,7 +17,7 @@ function App() {
     const { name, weatherData, threeHourForecast } = await getInputWeather(
       input
     );
-    setThreeHourForecast(threeHourForecast.list);
+    setThreeHourForecast(threeHourForecast);
     setLocationName(name);
     setWeatherData(weatherData);
   };
@@ -32,14 +25,14 @@ function App() {
   useEffect(() => {
     getUserWeather().then((data) => {
       if (!data) return;
-      setThreeHourForecast(data.threeHourForecast.list);
+      setThreeHourForecast(data.threeHourForecast);
       setWeatherData(data.weatherData);
       setLocationName(data.name);
     });
   }, [getUserWeather]);
 
   return (
-    <div className={`App${isNight ? " night" : " day"}`}>
+    <div className={`App`}>
       <Header onSearchFormSubmit={handleSearchFormSubmit} />
       <Main
         weatherData={weatherData}

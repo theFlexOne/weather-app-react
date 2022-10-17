@@ -38,9 +38,7 @@ const Header = ({ onSearchFormSubmit }) => {
         </button>
       </form>
       <nav>
-        <a href="https://dev.to/eric_havey">Blog</a>
-        <a href="https://github.com/theFlexOne/project-1-weather-app">GitHub</a>
-        <a href="#">About</a>
+        <a href="https://github.com/theFlexOne/weather-app-react">GitHub</a>
       </nav>
     </header>
   );

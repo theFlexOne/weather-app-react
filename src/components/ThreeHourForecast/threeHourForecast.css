@@ -1,4 +1,102 @@
 .three-hour-forecast {
   grid-column: 9/13;
-  grid-row: 1/11;
+  grid-row: 1/13;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-block-start: 0.5rem;
+}
+
+.interval-wrapper {
+  margin-bottom: auto;
+  margin-inline: 2rem;
+}
+
+.interval {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  align-items: center;
+  /* padding-block: 0.15rem; */
+}
+
+.interval:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.interval .time {
+  display: flex;
+  font-size: 0.75rem;
+  gap: 0.5rem;
+}
+
+.interval .day {
+  align-self: flex-end;
+  /* margin-block-end: 0.15rem; */
+}
+
+.interval .hour {
+  font-size: 1.25rem;
+}
+
+.interval .weather {
+  display: flex;
+  justify-content: flex-end;
+  margin-inline: minmax(1rem, auto) 1rem;
+}
+
+.interval .icon {
+  height: 3rem;
+  /* width: 24px; */
+}
+
+.interval .temp {
+  text-align: right;
+}
+
+.three-hour-forecast .button-wrapper {
+  box-shadow: 0 -1px 1px 1px rgba(0, 0, 0, 0.15);
+  display: flex;
+  margin-block-start: 1rem;
+}
+
+.three-hour-forecast button {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.35);
+  flex: 1;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-block: none;
+  border-inline: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.three-hour-forecast button:disabled {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.three-hour-forecast button:disabled .material-icons-outlined {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.three-hour-forecast button:not(:disabled):hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.three-hour-forecast button:not(:disabled):hover .material-icons-outlined {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.three-hour-forecast button:first-child {
+  border-inline-start: none;
+}
+
+.three-hour-forecast button:last-child {
+  border-inline-end: none;
+}
+
+.three-hour-forecast .material-icons-outlined {
+  font-size: 1rem;
 }

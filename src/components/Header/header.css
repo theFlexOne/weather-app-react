@@ -6,7 +6,6 @@ header {
   padding-left: 1em;
   background-color: var(--frosted-background-color);
   backdrop-filter: var(--frosted-filter-blur);
-  flex-basis: 0.2;
 }
 
 header img {

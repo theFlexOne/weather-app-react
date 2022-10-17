@@ -1,11 +1,19 @@
 main {
+  align-self: center;
   flex: 1;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-  gap: 2rem;
-  padding: 2rem;
+  grid-template-rows: repeat(12, 1fr);
+  gap: 1rem;
   place-content: center;
+  padding: 1rem;
+  max-width: 960px;
+}
+
+main:has(.loader) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .weather-card {
@@ -14,4 +22,62 @@ main {
   border: var(--frosted-border);
   border-radius: 5px;
   box-shadow: var(--frosted-box-shadow);
+}
+
+.primary-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+}
+
+.primary-card .top {
+  display: flex;
+}
+
+.primary-card .location-name {
+  margin-inline-end: auto;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.primary-card .date-time {
+  text-align: end;
+}
+
+.primary-card .time {
+  font-size: 1.5rem;
+}
+
+.primary-card .weather {
+  display: flex;
+  margin-left: 15%;
+  gap: 1rem;
+}
+
+.primary-card .weather-info {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.primary-card .temp {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.primary-card .weather-description {
+  text-transform: capitalize;
+  font-size: 1.25rem;
+}
+img.weather-icon {
+  width: 170px;
+  /* aspect-ratio: 1/1; */
+  object-fit: none;
+}
+
+.test {
+  min-height: 200px;
+  /* background-color: red; */
 }

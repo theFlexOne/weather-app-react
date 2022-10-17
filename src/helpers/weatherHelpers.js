@@ -1,4 +1,4 @@
-import { DateTime, Zone } from "luxon";
+import { DateTime } from "luxon";
 
 export const extractWeatherData = (data) => ({
   weather: data.weather[0],
@@ -15,16 +15,17 @@ export const buildLocalDateTime = (offset) => {
   const dt = DateTime.utc().toUTC(offset);
   const date = dt.toFormat("DDDD");
   const time = dt.toFormat("t");
-  console.log("DateTime", { DateTime });
   return { date, time };
 };
 
-export const getLocalTime = (ms, offset) => {
+export const getOffsetTime = (ms, offset = false) => {
   const dateTimeUTC = DateTime.fromMillis(ms);
   const dateTimeLocal = dateTimeUTC.toUTC(offset);
   return {
+    date: dateTimeLocal.toFormat("DDDD"),
     day: dateTimeLocal.toFormat("EEE"),
     hour: dateTimeLocal.toFormat("ha"),
+    time: dateTimeLocal.toFormat("t"),
   };
 };
 
