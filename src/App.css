@@ -3,7 +3,7 @@
   --font-family-second: "Titillium Web", sans-serif;
   --font-family-third: "Teko", sans-serif;
   --color-primary: rgb(56, 60, 77);
-  --frosted-background-color: rgba(35, 41, 49, 0.6);
+  --frosted-background-color: rgba(35, 41, 49, 0.75);
   --frosted-filter-blur: blur(4px);
   --frosted-box-shadow: -4px 8px 15px -5px rgba(78, 78, 78, 0.6),
     -9px 13px 20px -5px rgba(109, 103, 77, 0.6);
@@ -19,10 +19,11 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .App {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }

@@ -2,12 +2,12 @@ main {
   align-self: center;
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
+  grid-template-columns: auto auto;
+  grid-auto-flow: row;
   gap: 1rem;
   place-content: center;
   padding: 1rem;
-  max-width: 960px;
+  width: 960px;
 }
 
 main:has(.loader) {

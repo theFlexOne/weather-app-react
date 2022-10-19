@@ -7,7 +7,13 @@ const Overview = ({ weatherData, locationName }) => {
       {weatherData && (
         <>
           <div className="card-section top">
-            <p className="location-name">{locationName}</p>
+            <div className="location-name">
+              <p className="location-line-1 city">{locationName.city}</p>
+              <span className="location-line-2">
+                <p className="state">{locationName.state}</p>
+                <p className="country">{locationName.country}</p>
+              </span>
+            </div>
             <span className="date-time">
               <p className="date">{dt.date}</p>
               <p className="time">{dt.time}</p>
