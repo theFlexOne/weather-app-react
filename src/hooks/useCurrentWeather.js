@@ -22,8 +22,14 @@ const buildCurrentWeatherData = (data, unitSys) => {
       speed: `${Math.round(data.wind.speed)} ${UNITS.WIND_SPEED}`,
       deg: data.wind.deg,
     },
-    sunrise: getOffsetTime(data.sys.sunrise * 1000, data.timezone / 60).time,
-    sunset: getOffsetTime(data.sys.sunset * 1000, data.timezone / 60).time,
+    sunrise: {
+      time: getOffsetTime(data.sys.sunrise * 1000, data.timezone / 60).time,
+      ms: data.sys.sunrise * 1000,
+    },
+    sunset: {
+      time: getOffsetTime(data.sys.sunset * 1000, data.timezone / 60).time,
+      ms: data.sys.sunset * 1000,
+    },
     visibility: `${data.visibility / 1000} ${UNITS.VISIBILITY}`,
     dateTime: {
       ms: data.dt * 1000,

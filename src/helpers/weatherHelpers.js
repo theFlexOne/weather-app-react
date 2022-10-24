@@ -18,7 +18,7 @@ export const buildLocalDateTime = (offset) => {
   return { date, time };
 };
 
-export const getOffsetTime = (ms, offset = false) => {
+export const getOffsetTime = (ms, offset) => {
   const dateTimeUTC = DateTime.fromMillis(ms);
   const dateTimeLocal = dateTimeUTC.toUTC(offset);
   return {

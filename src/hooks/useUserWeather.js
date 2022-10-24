@@ -13,13 +13,13 @@ const useUserWeather = () => {
 
   const cb = useCallback(async () => {
     if (!geolocation.coords) return;
-    const name = await getLocationName(geolocation.coords);
-    const weatherData = await getCurrentWeatherData(geolocation.coords);
+    const locationName = await getLocationName(geolocation.coords);
+    const currentWeather = await getCurrentWeatherData(geolocation.coords);
     const threeHourForecast = await getThreeHourForecast(
       geolocation.coords,
-      weatherData.dateTime.offset
+      currentWeather.dateTime.offset
     );
-    return { name, weatherData, threeHourForecast };
+    return { locationName, currentWeather, threeHourForecast };
   }, [
     getCurrentWeatherData,
     getLocationName,

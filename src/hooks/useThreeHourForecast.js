@@ -38,7 +38,7 @@ const useThreeHourForecast = (options = {}) => {
   const unitSys = options.units || "imperial";
 
   const cb = useCallback(
-    async (coords, offset) => {
+    async (coords, offset = false) => {
       const url = buildOpenWeatherThreeHourUrl({ ...coords }, unitSys);
       try {
         const response = await fetch(url);

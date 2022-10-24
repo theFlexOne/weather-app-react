@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import "./threeHourForecast.css";
 
-const ThreeHourForecast = ({ threeHourForecast }) => {
+const ThreeHourForecast = ({ weatherData: { threeHourForecast } }) => {
   const [page, setPage] = useState(1);
   const intervalGroupLength = 10;
   const intervalStart = (page - 1) * intervalGroupLength;
@@ -36,8 +36,6 @@ const ThreeHourForecast = ({ threeHourForecast }) => {
   const displayNextGroup = () =>
     setPage((page) => (page === lastPage ? page : page + 1));
   const displayPrevGroup = () => setPage((page) => page - 1 || page);
-
-  console.log("threeHourForecast", threeHourForecast);
 
   return (
     <div className="weather-card three-hour-forecast">

@@ -10,8 +10,8 @@
   display: grid;
   grid-auto-flow: column;
   place-content: center;
-  /* gap: 0.5em; */
   font-size: 1.1rem;
+  padding-inline: 0.5rem;
 }
 
 .weather-details-item .label {
@@ -34,4 +34,16 @@
 
 .wind-direction {
   margin-inline-end: 0.5rem;
+}
+
+.weather-details .time {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.weather-details .icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  stroke: #fff;
 }

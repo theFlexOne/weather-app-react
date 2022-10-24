@@ -2,13 +2,14 @@ import "./header.css";
 import logo from "../../assets/images/weather-app-logo.png";
 import { useState } from "react";
 
-const Header = ({ onSearchFormSubmit }) => {
+const Header = ({ handleSearch }) => {
   const [searchInput, setSearchInput] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearchFormSubmit(searchInput);
+    handleSearch(searchInput);
   };
+
   return (
     <header>
       <div className="logo" id="logo">
@@ -25,6 +26,7 @@ const Header = ({ onSearchFormSubmit }) => {
           placeholder="Search by City & State, or Zip Code"
           autoComplete="on"
           onChange={(e) => setSearchInput(e.target.value)}
+          value={searchInput}
         />
         <button type="submit" id="searchButton" className="search-button">
           <i className="material-icons-outlined">search</i>
@@ -33,6 +35,7 @@ const Header = ({ onSearchFormSubmit }) => {
           type="button"
           id="userLocationButton"
           className="user-location-button"
+          onClick={() => handleSearch("")}
         >
           <i className="material-icons-outlined">my_location</i>
         </button>

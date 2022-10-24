@@ -14,11 +14,6 @@
 body {
   font-family: var(--font-family-first);
   background-color: #343f46;
-  background-image: url(assets/images/background_night1.jpg);
-  /* background-repeat: no-repeat; */
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -26,4 +21,15 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  position: relative;
+}
+
+.App::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
 }

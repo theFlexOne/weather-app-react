@@ -1,17 +1,66 @@
 .weather-overview {
   grid-row: 1/9;
   grid-column: 1/9;
+  display: flex;
+  flex-direction: column;
 }
 
-.location-line-2 {
+.weather-overview .location-name {
+  align-self: flex-start;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.weather-overview .weather {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.weather-overview .date-time {
+  align-self: flex-end;
+}
+
+.weather-overview .location-name .location-line-2 {
   display: flex;
   font-size: 1.5rem;
 }
 
-.location-line-2 .state {
+.weather-overview .location-name .state {
   margin-right: 0.5rem;
 }
 
-.location-line-2 .state::after {
+.weather-overview .location-name .state::after {
   content: ",";
+}
+
+.weather-overview .date-time {
+  text-align: end;
+}
+
+.weather-overview .time {
+  font-size: 1.5rem;
+}
+
+.weather-overview .weather-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: start;
+}
+
+.weather-overview .temp {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.weather-overview .weather-description {
+  text-transform: capitalize;
+  font-size: 1.25rem;
+}
+img.weather-icon {
+  width: 170px;
+  /* aspect-ratio: 1/1; */
+  object-fit: none;
 }
