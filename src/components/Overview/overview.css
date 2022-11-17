@@ -3,6 +3,7 @@
   grid-column: 1/9;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
 }
 
 .weather-overview .location-name {
